@@ -1,3 +1,5 @@
+# Report
+
 The present data is survey data consisting of roughly 200k samples, with 41 demographic features. Additionally, an 'instance weight' column is present, providing weights due to stratified sampling. We wish to achieve two goals: income prediction, population segmentation. 
 
 Let's discuss the first. The data contains a categorical feature 'label', containing two categories: "<$50k", ">$50k". We wish to train a binary classifier to predict the label of a given sample. This is a supervised learning problem.
