@@ -1,0 +1,7 @@
+Model was trained.
+number of trees=50
+maximum depth of each tree=12
+During training, the model achieved the following scores:
+{'auc': 0.9585275261519327, 'f1': 0.4418677868640371, 'precision': 0.9038927412258637, 'recall': 0.29240494241938686, 'accuracy': 0.952676303344579}
+During testing, the model achieved the following scores:
+{'auc': 0.9426820249513058, 'f1': 0.3799139675950396, 'precision': 0.8341068513843881, 'recall': 0.24597446902751569, 'accuracy': 0.9486167736029856}

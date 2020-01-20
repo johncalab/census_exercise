@@ -8,6 +8,13 @@ from utils import ttsplit
 train,test = ttsplit(df,df['label_encoded'])
 print("Train/test split done.")
 
+print("If you would like to save the train/test split, enter 'y'.")
+s = input()
+if s == 'y':
+    train.to_pickle('train.pkl')
+    test.to_pickle('test.pkl')
+    print("Train/test split saved as 'train.pkl', 'test.pkl'. To load data, use pd.read_pickle.")
+
 from utils import xyw
 x_train,y_train,w_train = xyw(train)
 x_test,y_test,w_test = xyw(test)
@@ -25,7 +32,14 @@ col_pipe = ColumnTransformer(
             ('one_hot', OneHotEncoder(handle_unknown='ignore'), sorted(list(var_disc)))
         ])
 
-model = Pipeline(steps=[ ('col_transf', col_pipe), ('rf', RandomForestClassifier(n_estimators=20)) ])
+n_estimators=50
+max_depth=12
+print(f"\nnumber of trees = {n_estimators}, max depth of each tree={max_depth}.\n")
+model = Pipeline(steps=[
+    ('col_transf', col_pipe),
+    ('rf', RandomForestClassifier(n_estimators=n_estimators,
+                                    # min_samples_split=100,
+                                    max_depth=max_depth)) ])
 print("Model instantiated.")
 
 # train model and save
@@ -40,6 +54,11 @@ print("Model was saved as 'income_model.sav'.")
 # loaded_model = joblib.load(filename)
 
 from utils import evaluate_preds
+
+with open('income.log', 'w') as f:
+    s = f"Model was trained.\nnumber of trees={n_estimators}\n"
+    s += f"maximum depth of each tree={max_depth}\n"
+    f.write(s)
 
 print("Evaluating over training set.")
 y_train_hat = model.predict_proba(x_train)[:,1]
