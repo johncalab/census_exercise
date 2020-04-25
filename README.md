@@ -1,3 +1,5 @@
+I was asked to complete a data exercise for an interview, and this was the final report I presented. There are many things I would do differently now, but hey.
+
 # Income prediction model
 
 ### Training and evaluation.
