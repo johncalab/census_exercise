@@ -1,4 +1,4 @@
-I was asked to complete a data exercise for an interview, and this was the final report I presented. There are many things I would do differently now, but hey.
+I was asked to complete a data exercise for an interview, and this was the final report I presented. You can have a look at the slide deck [here](https://github.com/johncalab/census_exercise/blob/master/slides.pdf). There are very many things I would do differently now, but hey.
 
 # Income prediction model
 
